@@ -1,17 +1,33 @@
-<h2>Sign in</h2>
+<div class="left_content">
+      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Register</div>
+      <div class="feat_prod_box_details">
+        <p class="details"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+        <div class="contact_form">
+        
+          <div class="form_subtitle">create new account</div>
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :email %></strong></label>
+              <%= f.email_field :email, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :password %></strong></label>
+              <%= f.password_field :password, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact">
+              <% if devise_mapping.rememberable? -%>
+              	<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+              <% end -%>
+            </div>
+            
+            <div class="form_row">
+              <%= f.submit "Sign in", :class => "register" %>
+            </div>
+          <% end %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+          <%= render :partial => "devise/shared/links" %>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>

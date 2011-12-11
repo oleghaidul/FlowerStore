@@ -2,20 +2,28 @@
     <div class="logo"><a href="http://www.free-css.com/"><img src="/images/logo.gif" alt="" border="0" /></a></div>
     <div id="menu">
       <ul>
-        <li class="selected"><%= link_to "home", root_path %></li>
-        <li><%= link_to "about us", about_path %></li>
-        <li><%= link_to "flowers", flowers_path %></li>
-        <li><a href="specials.html">specials gifts</a></li>
+        <li <%= "class='selected'" if controller_name == "home" && action_name=="index" %>><%= link_to "home", root_path %></li>
+        <li <%= "class='selected'" if controller_name == "home" && action_name=="about" %>><%= link_to "about us", about_path %></li>
+        <li <%= "class='selected'" if controller_name == "flowers"%>><%= link_to "flowers", flowers_path %></li>
+        <li <%= "class='selected'" if controller_name == "gifts"%>><%= link_to "specials gifts", gifts_path %></li>
 
         <% if user_signed_in? %>
-          <li><%= link_to('logout', destroy_user_session_path, :method => :delete) %></li>
-          <li><%= link_to('my account', edit_user_registration_path) %></li>
+          <li>
+            <%= link_to('logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+          <li <%= "class='selected'" if controller_name == "registrations"%>>
+            <%= link_to('my account', edit_user_registration_path) %>
+          </li>
         <% else %>
-          <li><%= link_to('login', new_user_session_path)  %></li>
-          <li><%= link_to('register', new_user_registration_path)  %></li>
+          <li <%= "class='selected'" if controller_name == "sessions"%>>
+            <%= link_to('login', new_user_session_path)  %>
+          </li>
+          <li <%= "class='selected'" if controller_name == "registrations"%>>  
+            <%= link_to('register', new_user_registration_path)  %>
+          </li>
         <% end %>
         <li><a href="details.html">prices</a></li>
-        <li><%= link_to "contact", contact_path %></li>
+        <li <%= "class='selected'" if controller_name == "home" && action_name=="contact" %>><%= link_to "contact", contact_path %></li>
       </ul>
     </div>
   </div>

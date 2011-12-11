@@ -1,18 +1,32 @@
-<h2>Sign up</h2>
+<div class="left_content">
+      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Register</div>
+      <div class="feat_prod_box_details">
+        <p class="details"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+        <div class="contact_form">
+        
+          <div class="form_subtitle">create new account</div>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  				<%= devise_error_messages! %>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :email %></strong></label>
+              <%= f.email_field :email, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :password %></strong></label>
+              <%= f.password_field :password, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :password_confirmation %></strong></label>
+              <%= f.password_field :password_confirmation, :class => "contact_input" %>
+            </div>
+            
+            <div class="form_row">
+              <%= f.submit "Sign up", :class => "register" %>
+            </div>
+          <% end %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+          <%= render :partial => "devise/shared/links" %>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>

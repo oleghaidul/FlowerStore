@@ -15,6 +15,7 @@ FlowerStore::Application.routes.draw do
   resources :carts, :only => ["index", "show"]
   resources :line_items
   resources :categories
+  resources :gifts
 
 
   # The priority is based upon order of creation:

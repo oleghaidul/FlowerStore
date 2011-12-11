@@ -14,38 +14,37 @@
     
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-
-    <%= yield %>
+    
+      <%= yield %>
 
     <!--end of left content-->
     <div class="right_content">
       <div class="languages_box"> <span class="red">Languages:</span> <a href="http://www.free-css.com/" class="selected"><img src="/images/gb.gif" alt="" border="0" /></a> <a href="http://www.free-css.com/"><img src="/images/fr.gif" alt="" border="0" /></a> <a href="http://www.free-css.com/"><img src="/images/de.gif" alt="" border="0" /></a> </div>
       <div class="currency"> <span class="red">Currency: </span> <a href="http://www.free-css.com/">GBP</a> <a href="http://www.free-css.com/">EUR</a> <a href="http://www.free-css.com/" class="selected">USD</a> </div>
       
-      <% unless @cart.nil? %>
+      
       <div class="cart">
+      <% unless @cart.nil? %>
         <div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" /></span><%= @cart.name %></div>
         <div class="home_cart_content"> <%= @cart.line_items.count %> x items | <span class="red"><%= number_to_currency @cart.total_price %></span> </div>
         <%= link_to "view cart", carts_path, :class => "view_cart" %> 
-      </div>
       <% end %>
+      </div>
+      
 
       <div class="title"><span class="title_icon"><img src="/images/bullet3.gif" alt="" /></span>About Our Shop</div>
       <div class="about">
         <p> <img src="/images/about.gif" alt="" class="right" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
       </div>
+
+      
       <div class="right_box">
-        <div class="title"><span class="title_icon"><img src="/images/bullet4.gif" alt="" /></span>Promotions</div>
-        <div class="new_prod_box"> <a href="http://www.free-css.com/">product name</a>
+      <div class="title"><span class="title_icon"><img src="/images/bullet4.gif" alt="" /></span>Promotions</div>
+      <% for promote in Flower.promoted %>
+        <div class="new_prod_box"> <a href="http://www.free-css.com/"><%= promote.name %></a>
           <div class="new_prod_bg"> <span class="new_icon"><img src="/images/promo_icon.gif" alt="" /></span> <a href="http://www.free-css.com/"><img src="/images/thumb1.gif" alt="" class="thumb" border="0" /></a> </div>
         </div>
-        <div class="new_prod_box"> <a href="http://www.free-css.com/">product name</a>
-          <div class="new_prod_bg"> <span class="new_icon"><img src="/images/promo_icon.gif" alt="" /></span> <a href="http://www.free-css.com/"><img src="/images/thumb2.gif" alt="" class="thumb" border="0" /></a> </div>
-        </div>
-        <div class="new_prod_box"> <a href="http://www.free-css.com/">product name</a>
-          <div class="new_prod_bg"> <span class="new_icon"><img src="/images/promo_icon.gif" alt="" /></span> <a href="http://www.free-css.com/"><img src="/images/thumb3.gif" alt="" class="thumb" border="0" /></a> </div>
-        </div>
+      <% end %>
       </div>
       <div class="right_box">
         <div class="title"><span class="title_icon"><img src="/images/bullet5.gif" alt="" /></span>Categories</div>
@@ -54,18 +53,12 @@
           <li><%= link_to category.name, category %></li>
         <% end %>
         </ul>
-        <div class="title"><span class="title_icon"><img src="/images/bullet6.gif" alt="" /></span>Partners</div>
+        <div class="title"><span class="title_icon"><img src="/images/bullet6.gif" alt="" /></span>flowers type</div>
         <ul class="list">
-          <li><a href="http://www.free-css.com/">accesories</a></li>
-          <li><a href="http://www.free-css.com/">flower gifts</a></li>
-          <li><a href="http://www.free-css.com/">specials</a></li>
-          <li><a href="http://www.free-css.com/">hollidays gifts</a></li>
-          <li><a href="http://www.free-css.com/">accesories</a></li>
-          <li><a href="http://www.free-css.com/">flower gifts</a></li>
-          <li><a href="http://www.free-css.com/">specials</a></li>
-          <li><a href="http://www.free-css.com/">hollidays gifts</a></li>
-          <li><a href="http://www.free-css.com/">accesories</a></li>
-        </ul>
+          <li><%= link_to "Natural", flowers_path+"?f_type=natural" %></li>
+          <li><%= link_to "Bunchs", flowers_path+"?f_type=bunch" %></li>
+          <li><%= link_to "Single", flowers_path+"?f_type=single" %></li>
+          </ul>
       </div>
     </div>
     <!--end of right content-->

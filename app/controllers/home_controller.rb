@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 	end
 
   def index
-
+    @flowers = Flower.scoped
   end
 
   def about

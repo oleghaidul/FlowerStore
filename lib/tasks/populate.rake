@@ -6,7 +6,7 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [Flower, Category].each(&:delete_all)
+    [Flower, Category, Gift].each(&:delete_all)
 
 
     Category.populate 3 do |category|
@@ -19,8 +19,17 @@ namespace :db do
         flower.description = Faker::Lorem.paragraphs(2)
         flower.price = 100..800
         flower.storage_id = 1..3
+        flower.rate = 0..20
+        flower.discount = 0..20
+        flower.f_type = ["natural", "bunch", "single"]
       end
 
+    end
+
+    Gift.populate 10 do |gift|
+      gift.name = Populator.words(2).titleize
+      gift.description = Faker::Lorem.paragraphs(2)
+      gift.price 50..200
     end
 
 

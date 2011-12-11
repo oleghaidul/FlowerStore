@@ -1,25 +1,40 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="left_content">
+      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Edit <%= resource_name.to_s.humanize %></div>
+      <div class="feat_prod_box_details">
+        <p class="details"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+        <div class="contact_form">
+        
+          <div class="form_subtitle">edit account</div>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+          <%= devise_error_messages! %>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :email %></strong></label>
+              <%= f.email_field :email, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :password %></strong></label>
+              <%= f.password_field :password, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :password_confirmation %></strong></label>
+              <%= f.password_field :password_confirmation, :class => "contact_input" %>
+            </div>
+            <div class="form_row">
+              <label class="contact"><strong><%= f.label :current_password %></strong></label>
+              <%= f.password_field :current_password, :class => "contact_input" %>
+            </div>
+            
+            <div class="form_row">
+              <%= f.submit "Update", :class => "register" %>
+            </div>
+          <% end %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+          <h3>Cancel my account</h3>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
+          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>

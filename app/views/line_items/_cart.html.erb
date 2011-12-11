@@ -1,3 +1,3 @@
-<div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" /></span>My cart</div>
+<div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" /></span><%= @cart.name %></div>
 <div class="home_cart_content"> <%= @cart.line_items.count %> x items | <span class="red"><%= number_to_currency @cart.total_price %></span> </div>
 <%= link_to "view cart", carts_path, :class => "view_cart" %> 
