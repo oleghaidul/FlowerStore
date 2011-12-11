@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  flower_id: 1
+  cart_id: 1
+  quantity: 1
+
+two:
+  flower_id: 1
+  cart_id: 1
+  quantity: 1
