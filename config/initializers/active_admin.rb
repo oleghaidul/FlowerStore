@@ -101,3 +101,4 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
 end
+Sass::Plugin.options[:never_update] = true
