@@ -1,3 +1,7 @@
 <div class="left_content">
-	<%= render @flowers %>
+	<% unless @flowers %>
+		<%= render @flowers %>
+	<% else %>
+		No Match Found
+	<% end %>
 </div>
