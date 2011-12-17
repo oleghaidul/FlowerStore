@@ -16,5 +16,6 @@
         </table>
         
         <%= button_to "Checkout", new_order_path, :method => :get %>
+        <%= button_to "Empty Cart", @cart, :method => :delete %>
         </div>
       <div class="clear"></div>

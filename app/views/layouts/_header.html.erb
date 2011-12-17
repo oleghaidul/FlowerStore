@@ -1,5 +1,11 @@
 <div class="header">
+
     <div class="logo"><%= link_to image_tag("logo.gif"), root_path %></div>
+    <div id="search">
+      <% form_tag search_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], :value => "search" %>
+      <% end %>
+    </div>
     <div id="menu">
       <ul>
         <li <%= "class='selected'" if controller_name == "home" && action_name=="index" %>><%= link_to "home", root_path %></li>
@@ -30,4 +36,5 @@
         </li>
       </ul>
     </div>
+
   </div>

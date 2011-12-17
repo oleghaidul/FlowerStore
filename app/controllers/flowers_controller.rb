@@ -15,6 +15,10 @@ class FlowersController < InheritedResources::Base
 		@flowers = Flower.all
 	end
 
+	def search
+		@flowers = Flower.search(params[:search])
+	end
+
 	protected
     def collection
       @flowers ||= end_of_association_chain.page(params[:page])

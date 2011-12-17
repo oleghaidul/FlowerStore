@@ -10,4 +10,8 @@ class CartsController < InheritedResources::Base
   	end
 		@categories = Category.all
 	end
+
+	def destroy
+    destroy!{ root_url }
+  end
 end

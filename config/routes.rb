@@ -11,12 +11,13 @@ FlowerStore::Application.routes.draw do
   match 'about' => 'home#about'
   match 'contact' => 'home#contact'
   match 'prices' => 'flowers#prices'
+  match 'search' => 'flowers#search'
 
 
   root :to => "home#index"
 
   resources :flowers, :only => ["index", "show"]
-  resources :carts, :only => ["index", "show"]
+  resources :carts, :only => ["index", "show", "destroy"]
   resources :line_items
   resources :categories, :only => ["index", "show"]
   resources :gifts, :only => ["index", "show"]

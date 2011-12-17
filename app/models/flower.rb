@@ -9,4 +9,12 @@ class Flower < ActiveRecord::Base
 		where("discount > 0").order("discount DESC").limit(3)
 	end
 
+	def self.search(search)
+	  if search
+	    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+	  else
+	    find(:all)
+	  end
+	end
+	
 end
