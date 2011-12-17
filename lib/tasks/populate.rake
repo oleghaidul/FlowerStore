@@ -32,6 +32,12 @@ namespace :db do
       gift.price 50..200
     end
 
+    AdminUser.populate 1 do |au|
+      au.email = "ususus1@yandex.ru"
+      au.password = 2020327
+      au.password_confirmation = 2020327
+    end
+
 
   end
 end

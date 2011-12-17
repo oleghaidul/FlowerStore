@@ -4,7 +4,7 @@ class CartsController < InheritedResources::Base
 
 	def load_cart
 	  if user_signed_in?
-			@cart = current_user.carts.last
+			@cart = current_user.carts.where(:active => true).last
 	  else
 	  	@cart = nil
   	end

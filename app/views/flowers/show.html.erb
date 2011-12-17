@@ -1,10 +1,12 @@
 <div class="left_content">
-      <div class="crumb_nav"> <a href="http://www.free-css.com/">home</a> &gt;&gt; product name </div>
-      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Product name</div>
+      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span><%= @flower.name %></div>
       <div class="feat_prod_box_details">
         <div class="prod_img"><a href="http://www.free-css.com/"><img src="/images/prod1.gif" alt="" border="0" /></a> <br />
           <br />
-          <a href="/images/big_pic.jpg" rel="lightbox"><img src="/images/zoom.gif" alt="" border="0" /></a> </div>
+          <%= button_to "To Cart", line_items_path(:flower_id => @flower.id), 
+                                                      :remote => true,
+                                                      :disable_with => "Wait...",
+                                                      :class => "addtocart" if user_signed_in? %></div>
         <div class="prod_det_box">
           <div class="box_top"></div>
           <div class="box_center">
@@ -12,7 +14,7 @@
             <p class="details"><%= @flower.description %></p>
             <div class="price"><strong>PRICE:</strong> <span class="red"><%= number_to_currency @flower.price %></span></div>
             <div class="price"><strong>COLORS:</strong> <span class="colors"><img src="/images/color1.gif" alt="" border="0" /></span> <span class="colors"><img src="/images/color2.gif" alt="" border="0" /></span> <span class="colors"><img src="/images/color3.gif" alt="" border="0" /></span> </div>
-            <a href="http://www.free-css.com/" class="more"><img src="/images/order_now.gif" alt="" border="0" /></a>
+            
             <div class="clear"></div>
           </div>
           <div class="box_bottom"></div>

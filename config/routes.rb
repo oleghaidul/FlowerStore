@@ -1,5 +1,7 @@
 FlowerStore::Application.routes.draw do
 
+  get "orders/new"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,14 +10,17 @@ FlowerStore::Application.routes.draw do
 
   match 'about' => 'home#about'
   match 'contact' => 'home#contact'
+  match 'prices' => 'flowers#prices'
+
 
   root :to => "home#index"
 
   resources :flowers, :only => ["index", "show"]
   resources :carts, :only => ["index", "show"]
   resources :line_items
-  resources :categories
-  resources :gifts
+  resources :categories, :only => ["index", "show"]
+  resources :gifts, :only => ["index", "show"]
+  resources :orders
 
 
   # The priority is based upon order of creation:

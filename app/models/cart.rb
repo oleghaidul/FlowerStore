@@ -4,6 +4,7 @@ class Cart < ActiveRecord::Base
 
 	def add_flower(flower_id, cart_id)
 		current_item = line_items.where(:flower_id => flower_id).first
+		Flower.find(flower_id).increment(:rate).save
 			if current_item
 			  current_item.quantity += 1
 			else
@@ -15,5 +16,7 @@ class Cart < ActiveRecord::Base
 	def total_price
 		line_items.includes(:flower).to_a.sum(&:full_price)
 	end
+
+	scope :active, where(:active => true)
 
 end

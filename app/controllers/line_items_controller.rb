@@ -1,9 +1,10 @@
 class LineItemsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :load_cart
 
   def load_cart
     if user_signed_in?
-      @cart = current_user.carts.last
+      @cart = current_user.carts.where(:active => true).last
     else
       @cart = nil
     end
@@ -11,10 +12,9 @@ class LineItemsController < ApplicationController
   end
 
 	def create
-		@cart = current_cart
     flower = Flower.find(params[:flower_id])
     if @cart.nil?
-      @cart = Cart.create(:name => "MyCart", :user_id => current_user.id)
+      @cart = Cart.create(:name => "MyCart", :user_id => current_user.id, :active => true)
       if @cart.add_flower(flower.id, @cart.id).save
       end
     else
@@ -30,10 +30,5 @@ class LineItemsController < ApplicationController
     @carts = current_user.carts
   end
 
-  private 
-  	
-  	def current_cart
-		  current_user.carts.last
-		end
 
 end

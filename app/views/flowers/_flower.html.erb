@@ -1,9 +1,10 @@
 <div class="new_prod_box"><%= link_to truncate(flower.name, :length => 18), flower %>
+<%= number_to_currency flower.price %>
 	<div class="new_prod_bg"> <%= link_to "", flower %>
-		<img src="images/thumb1.gif" alt="" class="thumb" border="0" />
+		<img src="images/<%= cycle("thumb1", "thumb2", "thumb3")%>.gif" alt="" class="thumb" border="0" />
 		<%= button_to "To Cart", line_items_path(:flower_id => flower.id), 
                                                       :remote => true,
                                                       :disable_with => "Wait...",
                                                       :class => "addtocart" if user_signed_in? %>
-	</div>
+	</div><br />
 </div>
