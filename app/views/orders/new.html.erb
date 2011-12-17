@@ -1,4 +1,6 @@
 <div class="left_content">
+<div class="contact_form">
+<div class="form_subtitle">Create order</div>
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -13,29 +15,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :size => 40 %>
+  <div class="form_row">
+    <label class="contact"><strong><%= f.label :name %></strong></label>
+    <%= f.text_field :name, :size => 40, :class => "contact_input" %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address, :rows => 3, :cols => 40 %>
+  <div class="form_row">
+    <label class="contact"><strong><%= f.label :address %></strong></label>
+    <%= f.text_area :address, :class => "contact_textarea" %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, :size => 40 %>
+  <div class="form_row">
+    <label class="contact"><strong><%= f.label :email %></strong></label>
+    <%= f.email_field :email, :class => "contact_input" %>
   </div>
-  <div class="field">
-    <%= f.label :pay_type %><br />
+  <div class="form_row">
+    <label class="contact"><strong><%= f.label :pay_type %></strong></label>
     <%= f.select :pay_type, Order::PAYMENT_TYPES,
                   :prompt => 'Select a payment method' %>
   </div>
-  <div class="field">
-    <%= f.label :gift %><br />
-    <%= collection_select(:order, :gift_id, Gift.all, :id, :name) %>
+  <div class="form_row">
+    <label class="contact"><strong><%= f.label :gift %></strong></label>
+    <%= collection_select(:order, :gift_id, Gift.all, :id, :name, :prompt => 'Select special gift') %>
   </div>
-  <div class="actions">
-    <%= f.submit 'Place Order' %>
+  <div class="form_row">
+    <%= f.submit 'Place Order', :class => "register" %>
   </div>
 <% end %>
+</div>
 </div>

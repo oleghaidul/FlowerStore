@@ -408,7 +408,7 @@ border:1px #DFDFDF solid;
 float:left;
 }
 textarea.contact_textarea{
-width:253px;
+width:248px;
 height:120px;
 font-family:Arial, Helvetica, sans-serif;
 font-size:12px;
@@ -418,7 +418,7 @@ border:1px #DFDFDF solid;
 float:left;
 }
 input.register{
-width:71px;
+width:81px;
 height:25px;
 border:none;
 cursor:pointer;
@@ -427,6 +427,16 @@ float:right;
 color:#FFFFFF;
 background:url(../../images/register_bt.gif) no-repeat center;
 }
+
+select {
+width:253px;
+height:18px;
+background-color:#fff;
+color:#999999;
+border:1px #DFDFDF solid;
+float:left;	
+}
+
 a.contact{
 width:53px;
 height:24px;
