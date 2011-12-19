@@ -1,0 +1,11 @@
+digraph controllers_diagram {
+	graph[overlap=false, splines=true]
+	"CartsController" [shape=Mrecord, label="{CartsController|_one_time_conditions_valid_302?\l_one_time_conditions_valid_304?\ldestroy\lload_cart\l|collection_path\lcollection_url\ledit_resource_path\ledit_resource_url\lnew_resource_path\lnew_resource_url\lresource_path\lresource_url\l|_layout\l_run_process_action_callbacks\l}"]
+	"HomeController" [shape=Mrecord, label="{HomeController|_one_time_conditions_valid_322?\labout\lcontact\lindex\lload_cart\l|\l|_layout\l_run_process_action_callbacks\l}"]
+	"FlowersController" [shape=Mrecord, label="{FlowersController|_one_time_conditions_valid_300?\lload_cart\lprices\lsearch\l|collection\lcollection_path\lcollection_url\ledit_resource_path\ledit_resource_url\lnew_resource_path\lnew_resource_url\lresource_path\lresource_url\l|_layout\l_run_process_action_callbacks\l}"]
+	"LineItemsController" [shape=Mrecord, label="{LineItemsController|_one_time_conditions_valid_306?\l_one_time_conditions_valid_308?\lcreate\ldestroy\lload_cart\l|\l|_layout\l_run_process_action_callbacks\l}"]
+	"GiftsController" [shape=Mrecord, label="{GiftsController|_one_time_conditions_valid_312?\lload_cart\l|collection_path\lcollection_url\ledit_resource_path\ledit_resource_url\lnew_resource_path\lnew_resource_url\lresource_path\lresource_url\l|_layout\l_run_process_action_callbacks\l}"]
+	"CategoriesController" [shape=Mrecord, label="{CategoriesController|_one_time_conditions_valid_310?\lload_cart\l|collection_path\lcollection_url\ledit_resource_path\ledit_resource_url\lnew_resource_path\lnew_resource_url\lresource_path\lresource_url\l|_layout\l_run_process_action_callbacks\l}"]
+	"OrdersController" [shape=Mrecord, label="{OrdersController|_one_time_conditions_valid_314?\l_one_time_conditions_valid_316?\lcreate\lload_cart\lnew\l|\l|_layout\l_run_process_action_callbacks\l}"]
+	"ApplicationController" [shape=Mrecord, label="{ApplicationController|_one_time_conditions_valid_42?\l|\l|_layout\l_run_process_action_callbacks\l}"]
+}

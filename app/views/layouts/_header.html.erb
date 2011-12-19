@@ -28,9 +28,6 @@
             <%= link_to('register', new_user_registration_path)  %>
           </li>
         <% end %>
-        <li <%= "class='selected'" if controller_name == "flowers" && action_name=="prices" %>>
-            <%= link_to('prices', prices_path)  %>
-        </li>
         <li <%= "class='selected'" if controller_name == "home" && action_name=="contact" %>>
           <%= link_to "contact", contact_path %>
         </li>
